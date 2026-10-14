@@ -33,7 +33,7 @@ class Program
                 switch (opcion)
                 {
                     case 1: 
-                        Anadir(); 
+                        Add(); 
                         break;
                     case 2:
                         Ver(); 
@@ -63,7 +63,7 @@ class Program
     static void MostrarMenu()
     {
         Console.WriteLine();
-        Console.WriteLine("===== REGISTRO DE HÁBITOS =====");
+        Console.WriteLine("----REGISTRO DE HÁBITOS----");
         Console.WriteLine("1. Añadir hábito");
         Console.WriteLine("2. Ver hábitos");
         Console.WriteLine("3. Actualizar hábito");
@@ -73,7 +73,7 @@ class Program
 
     //Opciones del menú
 
-    static void Anadir()
+    static void Add()
     {
         Habito habito = new Habito();
         habito.Nombre = Entrada.LeerTexto("Nombre del hábito: ", 30);

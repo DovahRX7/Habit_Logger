@@ -12,8 +12,7 @@ public static class HabitoSQL
         using SqliteCommand comando = conexion.CreateCommand();
 
         // Los valores se pasan con parámetros
-        comando.CommandText =
-            "INSERT INTO Habitos (Nombre, Fecha, Cantidad) VALUES ($nombre, $fecha, $cantidad)";
+        comando.CommandText = "INSERT INTO Habitos (Nombre, Fecha, Cantidad) VALUES ($nombre, $fecha, $cantidad)";
         comando.Parameters.AddWithValue("$nombre", habito.Nombre);
         comando.Parameters.AddWithValue("$fecha", FechaParaBD(habito.Fecha));
         comando.Parameters.AddWithValue("$cantidad", habito.Cantidad);
@@ -31,7 +30,7 @@ public static class HabitoSQL
         comando.CommandText = "SELECT Id, Nombre, Fecha, Cantidad FROM Habitos ORDER BY Fecha, Id";
 
         using SqliteDataReader lector = comando.ExecuteReader();
-        while (lector.Read())               //Read() avanza fila a fila 
+        while (lector.Read()) //Read() avanza fila a fila 
         {
             lista.Add(LeerHabito(lector));
         }
@@ -63,8 +62,7 @@ public static class HabitoSQL
     {
         using SqliteConnection conexion = Database.Abrir();
         using SqliteCommand comando = conexion.CreateCommand();
-        comando.CommandText =
-            "UPDATE Habitos SET Nombre = $nombre, Fecha = $fecha, Cantidad = $cantidad WHERE Id = $id";
+        comando.CommandText = "UPDATE Habitos SET Nombre = $nombre, Fecha = $fecha, Cantidad = $cantidad WHERE Id = $id";
         comando.Parameters.AddWithValue("$nombre", habito.Nombre);
         comando.Parameters.AddWithValue("$fecha", FechaParaBD(habito.Fecha));
         comando.Parameters.AddWithValue("$cantidad", habito.Cantidad);
